@@ -191,10 +191,9 @@ li, ul {
     font-size: .9rem;
     font-weight: 200;
     letter-spacing: 1px;
-    position: relative;
-    line-height: normal;
-    top: -10px;
-    left: -70px;
+   line-height: normal;
+    transform: translate(-5rem, -10px);
+    
 }
 
 .weather-card-bottom{
@@ -204,7 +203,6 @@ li, ul {
     gap: 1rem;
     width: 17rem;
     padding: 10px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
 }
 
 .weather-card-bottom h3, h5{
@@ -224,11 +222,6 @@ li, ul {
     align-items: start;
     gap: 1rem;
     padding: 1rem 30px;
-    margin-left: 0px;
-    margin-right: 0px;
-    width: 100%;
-    left: 0;
-    top: 0;
     border-radius: 15px;
     height: 23rem;  
 }
@@ -283,6 +276,7 @@ li, ul {
     border-radius: 15px;
     width: 18rem;
     height: 10rem;
+    
     
 }
 
