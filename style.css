@@ -15,6 +15,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
+    
 }
  
 .weather-app{
@@ -526,17 +527,6 @@ li, ul {
         
     }
 
-    .navbar{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        gap: 2px;
-        width: 100vw;
-        padding: 2rem 3rem;
-    }
-
     .brand{
         font-size: 20px;
         font-weight: 700;
@@ -551,8 +541,7 @@ li, ul {
     .weather-card{
         width: 100%;
         height: fit-content;
-       
-    }
+       }
 
     .weather-card-top{
         align-items: center;
