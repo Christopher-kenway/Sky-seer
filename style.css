@@ -10,7 +10,7 @@
 
 body {
     background-image: url(./images/background.jpg);
-    backdrop-filter: brightness(0.5);
+    backdrop-filter: brightness(0.9);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -18,9 +18,7 @@ body {
     
 }
  
-.weather-app{
-  height: auto;
-}
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -68,6 +66,7 @@ li, ul {
     height: 40px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(4px);
     padding: 0px 10px;
 }
@@ -83,6 +82,7 @@ li, ul {
     letter-spacing: 2px;
     padding: 10px 20px;
     color: #fff;
+    
     
 }
 
