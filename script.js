@@ -1,10 +1,8 @@
 const apiKey = "68b9b9342555e5ba07176f3590fe84af";
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?&units=metric&appid=${apiKey}&q=France`;
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=london&cnt=6&units=Metric&appid=${apiKey}`;
 const app = document.querySelector('.weather-app');
 const timeOutput = document.querySelector('.time');
-const searchBox = document.querySelector('.search-bar input');
-const searchBtn = document.querySelector('.search-bar button');
 const conditionOutput = document.querySelector('.condition');
 const icon = document.querySelector('.icon');
 const humidityOutput = document.querySelector('.humidity');
@@ -22,13 +20,30 @@ const iconCondition = document.querySelector('.icon');
 const city = document.querySelector('.city');
 
 
+// Form Submit event
+let cityInput = '';
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevents the page from refreshing
+
+    if (locationInputField.value.trim() === '') {
+        alert('Please enter a city name');
+    } else {
+        cityInput = locationInputField.value;
+      fetchWeatherData(); // Fetch weather data
+      locationInputField.value = ''; // Clear input field
+    }
+})
+
+
+
 
 // fetch weather data
 
 
-async function checkWeather()
+async function fetchWeatherData()
 {
-    const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl + cityInput + `&appid=${apiKey}`);
     const forecastResponse = await fetch(forecastUrl);
     let data = await response.json();
     let forecastData = await forecastResponse.json();
@@ -46,35 +61,10 @@ async function checkWeather()
 
 }
 
-checkWeather();
+fetchWeatherData();
 
 
-//Form Submit event
-// let cityInput = '';
-
-// document.getElementById('weatherForm').addEventListener('submit', function(e){
-//     e.preventDefault();
-//     cityInput = document.getElementById('locationInput').value;
-//     console.log(cityInput);
-//     getWeather();
-// });
 
 
-// // fetch weather data
-// function getWeather(){
-    
-//     if (location === ""){
-//         alert("Please enter a city!")
-//         return;
-//     } else {
-//         fetch(apiUrl)
-//         .then((response) => response.json())
-//         .then((data) => {
-//             displayWeather(data);
-//             console.log(data);
-            
-//         });
-//     }
-// }
 
-// getWeather();
+
