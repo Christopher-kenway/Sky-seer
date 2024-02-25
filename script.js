@@ -1,10 +1,10 @@
 const apiKey = "68b9b9342555e5ba07176f3590fe84af";
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Nigeria&units=Metric&appid=${apiKey}`;
-const location = document.getElementById("locationInput").value;
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?&units=metric&appid=${apiKey}&q=France`;
 const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=london&cnt=6&units=Metric&appid=${apiKey}`;
 const app = document.querySelector('.weather-app');
 const timeOutput = document.querySelector('.time');
-const city = document.querySelector('.city');
+const searchBox = document.querySelector('.search-bar input');
+const searchBtn = document.querySelector('.search-bar button');
 const conditionOutput = document.querySelector('.condition');
 const icon = document.querySelector('.icon');
 const humidityOutput = document.querySelector('.humidity');
@@ -19,7 +19,7 @@ const UVOutput = document.querySelector('.UV');
 const sunriseOutput = document.querySelector('.sunrise');
 const sunsetOutput = document.querySelector('.sunset');
 const iconCondition = document.querySelector('.icon');
-
+const city = document.querySelector('.city');
 
 
 
@@ -38,7 +38,6 @@ async function checkWeather()
     // Display weather data
     city.innerHTML = data.name;
     tempOutput.innerHTML = Math.round(data.main.temp) + '&deg;C';
-    city.innerHTML = data.name;
     conditionOutput.innerHTML = data.weather[0].description;
     humidityOutput.innerHTML = data.main.humidity + '%';
     PressureOutput.innerHTML = data.main.pressure + ' hPa';
@@ -46,7 +45,9 @@ async function checkWeather()
     feelsLikeOutput.innerHTML = Math.round(data.main.feels_like) + '&deg;C';
 
 }
+
 checkWeather();
+
 
 //Form Submit event
 // let cityInput = '';
