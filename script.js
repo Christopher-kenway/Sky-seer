@@ -61,8 +61,9 @@ async function fetchWeatherData()
         hours = hours % 12 || 12;
         const formattedTime = `${('0' + hours).slice(-2)}:${minutes} ${period}`;
         return formattedTime;
+        
     }
-
+  
     // Get sunrise and sunset timestamps and display formatted time
     const sunriseTimestamp = data.sys.sunrise;
     const sunsetTimestamp = data.sys.sunset;
@@ -108,7 +109,7 @@ async function fetchWeatherData()
                     const forecastDay4 = document.querySelector('.forecastDay4');
                     const forecastDay5 = document.querySelector('.forecastDay5');
 
-                    forecastDay1.innerHTML = data.daily.temperature_2m_min[1] + '&deg;C';
+                    // forecastDay1.innerHTML = data.daily.temperature_2m_min[1] + '&deg;C';
                     console.log(forecastDay1.innerHTML);
                 
                     
@@ -131,12 +132,28 @@ const currentDate = date.getDate();
 const currentMonthIndex = date.getMonth();
 const currentYear = date.getFullYear();
 
+
+function currentTime() {
+    const date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let period = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+    const formattedTime = `${('0' + hours).slice(-2)}:${('0' + minutes).slice(-2)} ${period}`;
+    return formattedTime;
+}
+const formattedTime = currentTime();
+
+
 // Get current month name from the array
 const currentMonth = month[currentMonthIndex];
 
  //Format and display current date
-const formattedDate = `${currentDate} ${currentMonth}`;
-document.getElementById('date').innerHTML = formattedDate;
+const formattedDate  = `${day[currentDay]}, ${currentDate} ${currentMonth} ${currentYear}`;
+document.querySelector('.date').innerHTML = formattedDate;
+document.querySelector('.time').innerHTML = formattedTime;
+
+
 
 
 
