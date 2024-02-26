@@ -3,7 +3,6 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 const app = document.querySelector('.weather-app');
 const timeOutput = document.querySelector('.time');
 const conditionOutput = document.querySelector('.condition');
-const icon = document.querySelector('.icon');
 const humidityOutput = document.querySelector('.humidity');
 const windOutput = document.querySelector('.wind');
 const temperatureOutput = document.querySelector('.temperature');
@@ -14,13 +13,12 @@ const PressureOutput = document.querySelector('.Pressure');
 const feelsLikeOutput = document.querySelector('.feelslike');
 const sunriseOutput = document.querySelector('.sunrise');
 const sunsetOutput = document.querySelector('.sunset');
-const iconCondition = document.querySelector('.icon');
+const weatherIcon = document.querySelector(".icon");
 const city = document.querySelector('.city');
 
 
 // Form Submit event
-let cityInput = '';
-
+let cityInput = 'Nigeria';
 form.addEventListener('submit', (e) => {
     e.preventDefault(); // Prevents the page from refreshing
 
@@ -32,9 +30,6 @@ form.addEventListener('submit', (e) => {
       locationInputField.value = ''; // Clear input field
     }
 })
-
-
-
 
 // fetch weather data
 async function fetchWeatherData()
@@ -51,6 +46,26 @@ async function fetchWeatherData()
     PressureOutput.innerHTML = data.main.pressure + ' hPa';
     windOutput.innerHTML = data.wind.speed + ' km/h';
     feelsLikeOutput.innerHTML = Math.round(data.main.feels_like) + '&deg;C';
+
+    // Get weather icon
+    const weatherCondition = data.weather[0].main.toLowerCase();
+
+    console.log(weatherCondition);
+
+    if (weatherCondition === "clouds") {
+      weatherIcon.src = "/icons/cloud.png";
+    } else if (weatherCondition === "rain") {
+      weatherIcon.src = "/icons/rain.png";
+    } else if (weatherCondition === "clear") {
+      weatherIcon.src = "/icons/clear.png";
+    } else if (weatherCondition === "mist") {
+      weatherIcon.src = "/icons/mist.png";
+    } else if (weatherCondition === "drizzle") {
+      weatherIcon.src = "/icons/drizzle.png";
+    } else if (weatherCondition === "snow") {
+      weatherIcon.src = "/icons/snow.png";
+    }
+
 
     // Function to convert Unix timestamp to formatted time
     function convertUnixTimestampToTime(unixTimestamp) {
@@ -72,22 +87,22 @@ async function fetchWeatherData()
     sunriseOutput.innerHTML = formattedSunriseTime;
     sunsetOutput.innerHTML = formattedSunsetTime;
 
-        // Get latitude and longitude
+    // Get latitude and longitude
         let lon = data.coord.lon;
         let lat = data.coord.lat;
 
-        // Function to fetch additional weather data based on latitude and longitude
+    // Function to fetch additional weather data based on latitude and longitude
         function getWeather(lat, lon) {
-            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_min,uv_index_max&timezone=auto&timeformat=unixtime&`;
-            return fetch(url)
+            const forecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_min,uv_index_max&timezone=auto&timeformat=unixtime&`;
+            const forecastData = fetch (forecastUrl);
+            forecastData
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
                   
                     // Get UV index and display on the UI
                     const UVOutput = document.querySelector('.UV');
-                   function getUVIndex(uvI) {
-
+                    function getUVIndex(uvI, UVOutput) {
                         if (uvI <= 2) {
                             UVOutput.innerHTML = uvI + ' Low risk';
                         } else if (uvI >= 3 && uvI <= 5) {
@@ -100,17 +115,8 @@ async function fetchWeatherData()
                             UVOutput.innerHTML = uvI + ' Extreme risk';
                         }
                     }
-                    getUVIndex(data.daily.uv_index_max[0]);
-                    // Get and display forecast data on the UI
-                    
-                    const forecastDay1 = document.querySelector('.forecastDay1');
-                    const forecastDay2 = document.querySelector('.forecastDay2');
-                    const forecastDay3 = document.querySelector('.forecastDay3');
-                    const forecastDay4 = document.querySelector('.forecastDay4');
-                    const forecastDay5 = document.querySelector('.forecastDay5');
+                    getUVIndex(data.daily.uv_index_max[0], UVOutput);
 
-                    // forecastDay1.innerHTML = data.daily.temperature_2m_min[1] + '&deg;C';
-                    console.log(forecastDay1.innerHTML);
                 
                     
                 })
