@@ -1,6 +1,5 @@
 const apiKey = "68b9b9342555e5ba07176f3590fe84af";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=london&cnt=6&units=Metric&appid=${apiKey}`;
 const app = document.querySelector('.weather-app');
 const timeOutput = document.querySelector('.time');
 const conditionOutput = document.querySelector('.condition');
@@ -13,7 +12,6 @@ const form = document.getElementById('locationInput');
 const locationInputField = form.querySelector('input[type="text"]'); 
 const PressureOutput = document.querySelector('.Pressure');
 const feelsLikeOutput = document.querySelector('.feelslike');
-const UVOutput = document.querySelector('.UV');
 const sunriseOutput = document.querySelector('.sunrise');
 const sunsetOutput = document.querySelector('.sunset');
 const iconCondition = document.querySelector('.icon');
@@ -39,16 +37,11 @@ form.addEventListener('submit', (e) => {
 
 
 // fetch weather data
-
-
 async function fetchWeatherData()
 {
     const response = await fetch(apiUrl + cityInput + `&appid=${apiKey}`);
-    const forecastResponse = await fetch(forecastUrl);
     let data = await response.json();
-    let forecastData = await forecastResponse.json();
     console.log(data);
-    console.log(forecastData);
 
     // Display weather data
     city.innerHTML = data.name;
@@ -78,9 +71,48 @@ async function fetchWeatherData()
     sunriseOutput.innerHTML = formattedSunriseTime;
     sunsetOutput.innerHTML = formattedSunsetTime;
 
-    
+        // Get latitude and longitude
+        let lon = data.coord.lon;
+        let lat = data.coord.lat;
 
-}
+        // Function to fetch additional weather data based on latitude and longitude
+        function getWeather(lat, lon) {
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_min,uv_index_max&timezone=auto&timeformat=unixtime&`;
+            return fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                  
+                    // Get UV index and display on the UI
+                    const UVOutput = document.querySelector('.UV');
+                   function getUVIndex(uvI) {
+
+                        if (uvI <= 2) {
+                            UVOutput.innerHTML = uvI + ' Low risk';
+                        } else if (uvI >= 3 && uvI <= 5) {
+                            UVOutput.innerHTML = uvI + ' Moderate risk';
+                        } else if (uvI >= 6 && uvI <= 7) {
+                            UVOutput.innerHTML = uvI + ' High risk';
+                        } else if (uvI >= 8 && uvI <= 10) {
+                            UVOutput.innerHTML = uvI + ' Very high risk';
+                        } else if (uvI >= 11) {
+                            UVOutput.innerHTML = uvI + ' Extreme risk';
+                        }
+                    }
+                    getUVIndex(data.daily.uv_index_max[0]);
+
+                    // (Process and update UV data)
+                    document.querySelector('forecast_temp1').innerHTML = data.daily.temperature_2m_min[1];
+                    document.querySelector('forecast_temp2').innerHTML = data.daily.temperature_2m_min[2];
+                    document.querySelector('forecast_temp3').innerHTML = data.daily.temperature_2m_min[3];
+                    document.querySelector('forecast_temp4').innerHTML = data.daily.temperature_2m_min[4];
+                    document.querySelector('forecast_temp5').innerHTML = data.daily.temperature_2m_min[5];
+                    // (Update forecast data on the UI)
+                })
+                .catch(error => console.error('Error fetching weather data:', error));
+        }
+        getWeather(lat, lon);
+    }
 
 fetchWeatherData();
 
@@ -98,10 +130,21 @@ const currentYear = date.getFullYear();
 // Get current month name from the array
 const currentMonth = month[currentMonthIndex];
 
- // Format and display current date
-// const formattedDate = `${day[currentDay]}, ${currentDate} ${currentMonth} `;
-// document.getElementById('date').innerHTML = formattedDate;
+ //Format and display current date
+const formattedDate = `${day[currentDay]}, ${currentDate} ${currentMonth} `;
+document.getElementById('date').innerHTML = formattedDate;
 
 
 
+
+
+
+// Add event listener when the DOM is ready
+document.addEventListener("DOMContentLoaded", function() {
+    // Add event listener to the element with ID "clr"
+    document.getElementById("clr").addEventListener("click", clearConsole);
+});
+function clearConsole() {
+    console.clear();
+}
 
