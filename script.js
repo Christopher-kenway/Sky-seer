@@ -100,14 +100,18 @@ async function fetchWeatherData()
                         }
                     }
                     getUVIndex(data.daily.uv_index_max[0]);
+                    // Get and display forecast data on the UI
+                    
+                    const forecastDay1 = document.querySelector('.forecastDay1');
+                    const forecastDay2 = document.querySelector('.forecastDay2');
+                    const forecastDay3 = document.querySelector('.forecastDay3');
+                    const forecastDay4 = document.querySelector('.forecastDay4');
+                    const forecastDay5 = document.querySelector('.forecastDay5');
 
-                    // (Process and update UV data)
-                    document.querySelector('forecast_temp1').innerHTML = data.daily.temperature_2m_min[1];
-                    document.querySelector('forecast_temp2').innerHTML = data.daily.temperature_2m_min[2];
-                    document.querySelector('forecast_temp3').innerHTML = data.daily.temperature_2m_min[3];
-                    document.querySelector('forecast_temp4').innerHTML = data.daily.temperature_2m_min[4];
-                    document.querySelector('forecast_temp5').innerHTML = data.daily.temperature_2m_min[5];
-                    // (Update forecast data on the UI)
+                    forecastDay1.innerHTML = data.daily.temperature_2m_min[1] + '&deg;C';
+                    console.log(forecastDay1.innerHTML);
+                
+                    
                 })
                 .catch(error => console.error('Error fetching weather data:', error));
         }
@@ -131,7 +135,7 @@ const currentYear = date.getFullYear();
 const currentMonth = month[currentMonthIndex];
 
  //Format and display current date
-const formattedDate = `${day[currentDay]}, ${currentDate} ${currentMonth} `;
+const formattedDate = `${currentDate} ${currentMonth}`;
 document.getElementById('date').innerHTML = formattedDate;
 
 

@@ -153,7 +153,7 @@ li, ul {
     align-items: center;
     gap: 5rem;
     width: 20rem;
-    border-bottom:  1px solid rgba(255, 255, 255, 0.18);
+    border-bottom:  2px solid rgba(255, 255, 255, 0.338);
 }
 
 .weather-card-top img{
