@@ -15,7 +15,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
-    
 }
  
 
@@ -24,6 +23,10 @@ body {
     flex-direction: row;
     padding: 2rem 3rem;
     gap: 2rem;
+}
+
+.weather-container{
+    display: block;
 }
 
 
@@ -431,7 +434,7 @@ li, ul {
     justify-content: space-between;
     gap: 5px;
     width: max-content;
-    height: max-content;  
+    height: fit-content;  
     backdrop-filter: blur(7px);
     
 }
@@ -451,8 +454,6 @@ li, ul {
 
 .forecast-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -463,10 +464,10 @@ li, ul {
   
   .forecast-item {
     display: flex;
-    align-items: left;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    gap: 2rem;  
-    width: 17rem;
+    gap: 3rem;
    
   }
   
@@ -517,7 +518,7 @@ li, ul {
         text-decoration: none;
     }
 
-  /*===================================media queries==================================*/
+  /*===========================media queries====================*/
 
     /*===================larger screen===============================*/
 @media screen and (max-width: 800px){

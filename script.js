@@ -59,11 +59,48 @@ async function fetchWeatherData()
     windOutput.innerHTML = data.wind.speed + ' km/h';
     feelsLikeOutput.innerHTML = Math.round(data.main.feels_like) + '&deg;C';
 
+    // Function to convert Unix timestamp to formatted time
+    function convertUnixTimestampToTime(unixTimestamp) {
+        const date = new Date(unixTimestamp * 1000);
+        let hours = date.getHours();
+        const minutes = ('0' + date.getMinutes()).slice(-2);
+        const period = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12;
+        const formattedTime = `${('0' + hours).slice(-2)}:${minutes} ${period}`;
+        return formattedTime;
+    }
+
+    // Get sunrise and sunset timestamps and display formatted time
+    const sunriseTimestamp = data.sys.sunrise;
+    const sunsetTimestamp = data.sys.sunset;
+    let formattedSunriseTime = convertUnixTimestampToTime(sunriseTimestamp);
+    let formattedSunsetTime = convertUnixTimestampToTime(sunsetTimestamp);
+    sunriseOutput.innerHTML = formattedSunriseTime;
+    sunsetOutput.innerHTML = formattedSunsetTime;
+
+    
+
 }
 
 fetchWeatherData();
 
+// Array for days and months
+const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
+// Get current date details
+const date = new Date();
+const currentDay = date.getDay();
+const currentDate = date.getDate();
+const currentMonthIndex = date.getMonth();
+const currentYear = date.getFullYear();
+
+// Get current month name from the array
+const currentMonth = month[currentMonthIndex];
+
+ // Format and display current date
+// const formattedDate = `${day[currentDay]}, ${currentDate} ${currentMonth} `;
+// document.getElementById('date').innerHTML = formattedDate;
 
 
 
