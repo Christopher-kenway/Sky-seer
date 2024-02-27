@@ -178,12 +178,3 @@ document.querySelector('.time').innerHTML = formattedTime;
 
 
 
-// Add event listener when the DOM is ready
-document.addEventListener("DOMContentLoaded", function() {
-    // Add event listener to the element with ID "clr"
-    document.getElementById("clr").addEventListener("click", clearConsole);
-});
-function clearConsole() {
-    console.clear();
-}
-
