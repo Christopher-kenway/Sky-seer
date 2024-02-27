@@ -96,31 +96,41 @@ async function fetchWeatherData()
             const forecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_min,uv_index_max&timezone=auto&timeformat=unixtime&`;
             const forecastData = fetch (forecastUrl);
             forecastData
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                  
-                    // Get UV index and display on the UI
-                    const UVOutput = document.querySelector('.UV');
-                    function getUVIndex(uvI, UVOutput) {
-                        if (uvI <= 2) {
-                            UVOutput.innerHTML = uvI + ' Low risk';
-                        } else if (uvI >= 3 && uvI <= 5) {
-                            UVOutput.innerHTML = uvI + ' Moderate risk';
-                        } else if (uvI >= 6 && uvI <= 7) {
-                            UVOutput.innerHTML = uvI + ' High risk';
-                        } else if (uvI >= 8 && uvI <= 10) {
-                            UVOutput.innerHTML = uvI + ' Very high risk';
-                        } else if (uvI >= 11) {
-                            UVOutput.innerHTML = uvI + ' Extreme risk';
-                        }
-                    }
-                    getUVIndex(data.daily.uv_index_max[0], UVOutput);
-
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
                 
-                    
-                })
-                .catch(error => console.error('Error fetching weather data:', error));
+                // Get UV index and display on the UI
+                const UVOutput = document.querySelector('.UV');
+                function getUVIndex(uvI, UVOutput) {
+                    if (uvI <= 2) {
+                        UVOutput.innerHTML = uvI + ' Low risk';
+                    } else if (uvI >= 3 && uvI <= 5) {
+                        UVOutput.innerHTML = uvI + ' Moderate risk';
+                    } else if (uvI >= 6 && uvI <= 7) {
+                        UVOutput.innerHTML = uvI + ' High risk';
+                    } else if (uvI >= 8 && uvI <= 10) {
+                        UVOutput.innerHTML = uvI + ' Very high risk';
+                    } else if (uvI >= 11) {
+                        UVOutput.innerHTML = uvI + ' Extreme risk';
+                    }
+                }
+                getUVIndex(data.daily.uv_index_max[0], UVOutput);
+
+                //get forecast data
+                function updateForecastTemperatures() {
+                    document.getElementById("forecastTemp1").innerHTML = Math.round(data.daily.temperature_2m_min[1]) + '&deg;C';
+                    document.getElementById("forecastTemp2").innerHTML = Math.round(data.daily.temperature_2m_min[2]) + '&deg;C';
+                    document.getElementById("forecastTemp3").innerHTML = Math.round(data.daily.temperature_2m_min[3]) + '&deg;C';
+                    document.getElementById("forecastTemp4").innerHTML = Math.round(data.daily.temperature_2m_min[4]) + '&deg;C';
+                    document.getElementById("forecastTemp5").innerHTML = Math.round(data.daily.temperature_2m_min[5]) + '&deg;C';
+                }
+                updateForecastTemperatures();
+
+            
+                
+            })
+            .catch(error => console.error('Error fetching weather data:', error));
         }
         getWeather(lat, lon);
     }
@@ -158,6 +168,8 @@ const currentMonth = month[currentMonthIndex];
 const formattedDate  = `${day[currentDay]}, ${currentDate} ${currentMonth} ${currentYear}`;
 document.querySelector('.date').innerHTML = formattedDate;
 document.querySelector('.time').innerHTML = formattedTime;
+
+
 
 
 
