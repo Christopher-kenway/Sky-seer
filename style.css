@@ -667,7 +667,8 @@ li, ul {
 
     .highlights-cards{
        display: flex;
-       flex-direction: column;     
+       flex-direction: column;  
+ 
     }
 
 
@@ -695,14 +696,6 @@ li, ul {
 /*medium screen*/
 @media screen and (max-width: 395px){
   
-  
-    .search-bar{
-        width: 180px;
-    }
-
-    .search{
-        font-size: .69rem;
-    }
 
     .submit > span{
         transform: translate(-2.5rem, 0rem);
