@@ -626,26 +626,20 @@ li, ul {
 
     .search-bar{
        width: 200px;
-        height: 40px;
-        padding: 0px 10px;
+      
     }
 
     .search{
-        font-size: .7rem;
+        font-size: .75rem;
     }
 
     .submit > span{
         transform: translate(-2.5rem, 0rem);
     }
 
-    .weather-card{
-        width: 100%;
-        height: fit-content;
-       
-    }
 
     .weather-card-top > span{
-        transform: translate(2rem, -1rem);
+        transform: translate(4rem, -1rem);
     }
 
     .weather-card-top img{
@@ -653,6 +647,11 @@ li, ul {
         height: 110px;
       
         
+    }
+
+    .weather-card-top h1{
+        font-size: 4em;
+   
     }
 
     .weather-card-top h3{
@@ -665,34 +664,12 @@ li, ul {
         font-size: 1rem;
     }
 
-    .highlights{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: fit-content;
-    }
 
     .highlights-cards{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        align-items: left;
-        gap: 1.5rem;
-        width: 100%;
-       
-        margin-right: 1rem;
-        
+       display: flex;
+       flex-direction: column;     
     }
 
-    .wind-card, .UV-card, .sunrise-set, .highlights_bottom-card{
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        gap: 1rem;
-        padding: 0.5rem 2rem;
-        border-radius: 15px;
-        width: 18rem;
-        height: 8.5rem;
-    }
 
     .wind-card img{
         width: 50px;
@@ -708,23 +685,6 @@ li, ul {
         font-size: 15px;
     }
 
-    .forecast{
-        display: flex;
-        flex-direction: column;
-        align-items: left;
-        gap: 0.5rem;
-        width: 100%;
-        padding: 10px 0rem;
-    }
-   
-    .forecast-card{
-        width: 100%;
-        height: fit-content;
-    }
-
-    .forecast-item span{
-        font-size: 18px;
-    }
 
     .footer__text{
         font-size: 13px;
@@ -734,73 +694,61 @@ li, ul {
 
 /*medium screen*/
 @media screen and (max-width: 395px){
-    .weather-card-top button{
-        font-size: 0.55rem;
-        width: 100px;
-        height: 20px;
-        border-radius: 6px;
-        left: -35px;
-        top: -40px;
-        position: relative;
+  
+  
+    .search-bar{
+        width: 180px;
     }
 
-    .wind-card, .UV-card, .sunrise-set, .highlights_bottom-card{
-        display: flex;
-        flex-direction: column;
-        align-items: left;
-        gap: 0rem;
-        padding: 0.4rem 2rem;
-        border-radius: 15px;
-        width: 14.5rem;
-        height: 6.5rem;
+    .search{
+        font-size: .69rem;
+    }
+
+    .submit > span{
+        transform: translate(-2.5rem, 0rem);
+    }
+
+    .weather-card-top > span{
+        transform: translate(4rem, 0.1rem);
+    }
+
+    .weather-card-top img{
+        width: 70px;
+        height: 70px;
+    }
+
+    .weather-card-top h1{
+        font-size: 2.5em;
+    }
+
+    .weather-card-top h3{
+        font-size: 0.7em;
+        transform: translate(-.5rem, -1rem);
+    }
+
+    .weather-card-bottom h3, h5{
+        font-size: 0.9rem;
+    }
+
+    .highlights-cards{
+     }
+
+    .wind-card img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .UV-card img{
+        width: 40px;
+        height: 40px;
     }
 
     .card-top h3{
         font-size: 13px;
     }
 
-    .card-bottom h1{
-        font-size: 15px;
-    }
-    .card-bottom_sun{
-        display: flex;
-        flex-direction: row;
-        gap: 0rem;
-        margin-left: -3.2rem;
-    }
-
-    .card-bottom_sun h5{
-        font-size: 12px;
-    }
-
-    .card-bottom_sun h1{
+    .footer__text{
         font-size: 11px;
     }
-
-    .card-left{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 4rem;
-        width: 100%;  
-    }
-
-    .card-left h1{
-        font-size: 14px;
-    } 
-
-    .forecast-item{
-        width: 100%;
-        padding: 0rem 3rem;
-    }
-
-    .forecast-item span{
-        font-size: 15px;
-    }
-
-    .footer__text{
-        font-size: 12px;
-    }
-
 }
 
