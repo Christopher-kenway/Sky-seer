@@ -22,14 +22,15 @@ let cityInput = 'Nigeria';
 form.addEventListener('submit', (e) => {
     e.preventDefault(); // Prevents the page from refreshing
 
-    if (locationInputField.value.trim() === '') {
-        alert('Please enter a city name');
-    } else {
-        cityInput = locationInputField.value;
-      fetchWeatherData(); // Fetch weather data
-      locationInputField.value = ''; // Clear input field
-    }
-})
+        if (locationInputField.value.trim() === '') {
+            alert('Please enter a city name');
+        } 
+        else {
+            cityInput = locationInputField.value;
+        fetchWeatherData(); // Fetch weather data
+        locationInputField.value = ''; // Clear input field
+        }
+    })
 
 // fetch weather data
 async function fetchWeatherData()
