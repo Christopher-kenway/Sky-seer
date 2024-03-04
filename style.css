@@ -698,7 +698,7 @@ li, ul {
             display: grid;
             grid-template-columns: 1fr;
             align-items: center;
-            padding: 1rem 1rem; 
+            padding: 1rem 2rem; 
             gap: 1rem;
         }
 
@@ -717,6 +717,7 @@ li, ul {
         }
     
         .submit > span{
+            display: none;
             transform: translate(-2.8rem, 0rem);
         }
     
@@ -738,18 +739,16 @@ li, ul {
         }
     
         .weather-card-top h3{
-            font-size: 0.9em;
+            font-size: 0.8rem;
             transform: translate(-4rem, -1rem);
         }
     
         .weather-card-bottom h3, h5{
-            font-size: 0.9em;
+            font-size: 0.7rem;
+            border: 2px solid rgb(128, 0, 107);
         }
 
         .highlights{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 1rem 1.875rem;
             border-radius: 15px;
         }
