@@ -169,13 +169,3 @@ const currentMonth = month[currentMonthIndex];
 const formattedDate  = `${day[currentDay]}, ${currentDate} ${currentMonth} ${currentYear}`;
 document.querySelector('.date').innerHTML = formattedDate;
 document.querySelector('.time').innerHTML = formattedTime;
-
-
-
-
-
-
-
-
-
-
