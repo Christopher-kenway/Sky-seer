@@ -672,6 +672,10 @@ li, ul {
             height: 30px;
         }
 
+        .forecast-card{
+            width: 100%; 
+        } 
+
         .forecast-item > span{
             font-size: 1rem;
         }
