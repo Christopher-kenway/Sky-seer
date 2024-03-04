@@ -722,24 +722,24 @@ li, ul {
     
     
         .weather-card-top > span{
-            transform: translate(.1rem, -1rem);
+            transform: translate(3rem, -.4rem);
         }
     
         .weather-card-top img{
-            width: 110px;
-            height: 110px;
+            width: 90px;
+            height: 90px;
           
             
         }
     
         .weather-card-top h1{
-            font-size: 4em;
+            font-size: 3em;
        
         }
     
         .weather-card-top h3{
             font-size: 0.9em;
-            transform: translate(-.5rem, -1rem);
+            transform: translate(-4rem, -1rem);
         }
     
         .weather-card-bottom h3, h5{
