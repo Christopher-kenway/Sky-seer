@@ -573,7 +573,7 @@ li, ul {
 
     /*======== large mobile size ============*/
 
-    @media (max-width: 767px) and (min-width: 425px) {
+    @media (max-width: 767px) and (min-width: 431px) {
         .nav-menu{
             display: none;
         }
@@ -638,6 +638,9 @@ li, ul {
         }
 
         .highlights{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 1rem 1.875rem;
             border-radius: 15px;
         }
@@ -664,6 +667,11 @@ li, ul {
             font-size: 1rem;
         }
 
+        .card-bottom_sun img {
+            width: 30px;
+            height: 30px;
+        }
+
         .forecast-item > span{
             font-size: 1rem;
         }
@@ -671,89 +679,7 @@ li, ul {
 
     /*======== small mobile size ============*/
 
-    @media (max-width: 425px) and (min-width: 376px){
+    @media (max-width: 430px) and (min-width: 380px){
    
-        .weather-container{
-            display: grid;
-            grid-template-columns: 1fr;
-            align-items: center;
-            padding: 1rem 2rem; 
-            gap: 1rem;
-        }
-
-        .brand{
-            font-size: 1rem;
-            font-weight: 700;
-        }
-    
-        .search-bar{
-           width: 150px;
-          
-        }
-    
-        .search{
-            font-size: .65rem;
-        }
-    
-        .submit > span{
-            transform: translate(-4rem, -.5rem);
-        }
-    
-    
-        .weather-card-top > span{
-            transform: translate(4rem, -1rem);
-        }
-    
-        .weather-card-top img{
-            width: 60px;
-            height: 60px;
-          
-            
-        }
-    
-        .weather-card-top h1{
-            font-size: 2rem;
-       
-        }
-    
-        .weather-card-top h3{
-            font-size: 0.8em;
-            transform: translate(-3rem, -.5rem);
-        }
-    
-        .weather-card-bottom h3, h5{
-            font-size: 0.5em;
-        }
-
-        .highlights{
-            padding: 1rem 1.875rem;
-            border-radius: 15px;
-        }
-
-        .highlights-cards{
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .highlights-cards img{
-            width: 30px;
-            height: 30px;
-        }
-
-        .highlights_bottom-card{
-            gap: 1rem;
-            padding: 1rem 2rem;
-            border-radius: 15px;
-            height: fit-content;
-        }
-
-        .highlights_bottom-card h1{
-            font-size: .7rem;
-        }
-
-        .forecast-item > span{
-            font-size: .8rem;
-        }
     }
     
