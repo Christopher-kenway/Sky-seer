@@ -501,7 +501,7 @@ li, ul {
   /*===========================media queries====================*/
 
 /* tablet size */
-@media (max-width: 768px) {
+@media (max-width: 1240px) and (min-width: 768px) {
     
     .weather-container{
        display: grid;
@@ -573,7 +573,7 @@ li, ul {
 
     /*======== large mobile size ============*/
 
-    @media (max-width: 426px) {
+    @media (max-width: 767px) and (min-width: 425px) {
         .nav-menu{
             display: none;
         }
@@ -671,7 +671,7 @@ li, ul {
 
     /*======== small mobile size ============*/
 
-    @media (max-width: 380px) {
+    @media (max-width: 425px) and (min-width: 376px){
    
         .weather-container{
             display: grid;
