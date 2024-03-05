@@ -682,21 +682,15 @@ li, ul {
 
     /*======== small mobile size ============*/
 
-    @media (max-width: 430px) and (min-width: 375px){
-        .navbar{
-            display: flex;
-            flex-direction: row;
-            padding: 1rem 2rem;
-            gap: 1rem;
-        }
-
+    @media (max-width: 426px) and (min-width: 375px){
+      
         .nav-menu{
             display: none;
         }
 
         .weather-container{
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             align-items: center;
             padding: 1rem 2rem; 
             gap: 1rem;
@@ -723,7 +717,8 @@ li, ul {
     
     
         .weather-card-top > span{
-            transform: translate(3rem, -.4rem);
+            transform: translate(1rem, -.4rem);
+    
         }
     
         .weather-card-top img{
@@ -745,10 +740,11 @@ li, ul {
     
         .weather-card-bottom h3, h5{
             font-size: 0.7rem;
-            border: 2px solid rgb(128, 0, 107);
         }
 
         .highlights{
+            display: flex;
+            flex-direction: column;
             padding: 1rem 1.875rem;
             border-radius: 15px;
         }
@@ -757,18 +753,30 @@ li, ul {
             display: grid;
             grid-template-columns: 1fr;
             gap: 2rem;
+    
         }
 
         .highlights-cards img{
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
         }
 
+        .highlights-cards h1{
+            font-size: .9rem;
+        }
+
+        .card-bottom{
+            width: max-content;
+            gap: 4rem;
+        }
+    
         .highlights_bottom-card{
             gap: 1rem;
             padding: 1rem 2rem;
             border-radius: 15px;
             height: fit-content;
+
+              
         }
 
         .highlights_bottom-card h1{
@@ -780,12 +788,53 @@ li, ul {
             height: 30px;
         }
 
+         .card-bottom_sun{
+            gap: .1rem;
+         }
+
+    .card-bottom_sun h1{
+        font-size: .8rem;
+ 
+        }
+
         .forecast-card{
             width: 100%; 
         } 
 
         .forecast-item > span{
-            font-size: 1rem;
+            font-size: .774rem;
         }
     }
     
+    /*======== extra small mobile size ============*/
+@media (max-width: 375px) and (min-width: 320px){
+    .navbar{
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 2rem;
+        gap: 1rem;
+    }
+
+    .nav-menu{
+        display: none;
+    }
+
+    .weather-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        padding: 1rem 2rem; 
+    }
+
+    .brand{
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .material-symbols-outlined{
+        transform: translate(1rem, -.4rem);
+        border: 2px solid red;
+    }
+
+ 
+}   
