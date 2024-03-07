@@ -712,6 +712,10 @@ li, ul {
             width: 90px;
             height: 90px;   
         }
+
+        .weather-card-top > span{
+            transform: translate(4rem, -10px);
+        }
     
         .weather-card-top h1{
             font-size: 2rem;
