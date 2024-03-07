@@ -578,8 +578,6 @@ li, ul {
         }
     
         .navbar{
-            display: flex;
-            flex-direction: row;
             padding: 1rem 2rem;
             gap: 1rem;
         }
@@ -593,15 +591,15 @@ li, ul {
         }
 
         .brand{
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
         }
        
     
         .search{
-            font-size: .85rem;
+            font-size: .75rem;
         }
-    
+
     
         .weather-card-top > span{
             transform: translate(2rem, -1rem);
@@ -685,7 +683,7 @@ li, ul {
     @media (max-width: 426px) and (min-width: 375px){
       
         .navbar{
-            padding: 1rem 3rem;
+            padding: 1rem 2rem;
             gap: 1rem;
         }
         .nav-menu{
@@ -701,20 +699,23 @@ li, ul {
         }
 
         .brand{
-            font-size: 1rem;
+            font-size: .7rem;
             font-weight: 700;
         }
-    
-        .search-bar{
-            border: 1px solid red;
-            max-width: fit-content;
-        }
-    
-        .search{
+
+      .search{
             font-size: .6rem;
             line-height: 2rem;
             font-weight: 700;
         }
+        .search-bar{
+            display: flex;
+            align-self: center;
+            justify-self: center;
+            border: 1px solid red;
+        }
+    
+      
     
         .weather-card-top img{
             width: 90px;
