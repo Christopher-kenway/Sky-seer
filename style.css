@@ -603,7 +603,7 @@ li, ul {
         }
 
         .weather-card-top > span{
-            transform: translate(4rem, -20px);
+            transform: translate(3rem, -20px);
         }
     
         .weather-card-top h1{
