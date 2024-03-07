@@ -651,7 +651,6 @@ li, ul {
     
         }
 
-       
 
         .highlights-cards img{
             width: 50px;
@@ -675,6 +674,7 @@ li, ul {
         }
 
         .forecast{
+             margin-top: 3rem;
             display: grid;
             grid-template-columns: 1fr;
         }
@@ -700,7 +700,7 @@ li, ul {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1rem 2rem; 
+            padding: 1rem 1rem; 
             gap: 1rem;
         }
 
@@ -710,7 +710,7 @@ li, ul {
         }
     
         .search-bar{
-           width: 170px;
+           width: 190px;
           
         }
     
@@ -719,8 +719,7 @@ li, ul {
         }
     
         .submit > span{
-            display: none;
-            transform: translate(-2.8rem, 0rem);
+               transform: translate(-1.8rem, 0rem);
         }
     
     
@@ -809,9 +808,9 @@ li, ul {
         }
 
         .forecast{
+            margin-top: 3rem;
             display: grid;
             grid-template-columns: 1fr;
-            border: 1px solid red;
         }
 
         .forecast-card{
@@ -823,7 +822,7 @@ li, ul {
         }
     }
     
-    /*======== extra small mobile size ============*/
+    /*======== very small mobile size ============*/
 @media (max-width: 376px) and (min-width: 320px){
     .navbar{
         display: flex;
@@ -848,3 +847,37 @@ li, ul {
     }
  
 }   
+
+/*===================extra small mobile size=================*/
+
+@media (max-width: 319px){
+    .navbar{
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 2rem;
+        gap: 1rem;
+    }
+
+    .weather-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 2rem; 
+        gap: 1rem;
+    }
+    
+
+    .nav-menu{
+        display: none;
+    }
+
+    .material-symbols-outlined{
+        transform: translate(1rem, -.4rem);
+    }
+
+    .forecast-item > span {
+        font-size: .4rem;
+        width: max-content ;
+        line-height: 1rem;
+    }
+}
