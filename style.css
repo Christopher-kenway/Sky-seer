@@ -407,7 +407,6 @@ li, ul {
     letter-spacing: 1px;
 }
 
-
 .forecast-card{
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -470,10 +469,8 @@ li, ul {
   .footer{
     display: flex;
     flex-direction: column;
-    justify-content: end;
     align-items: center;
     padding: 5px 0px; 
-    height: 100%;
   }
 
   .footer__text{
@@ -481,7 +478,6 @@ li, ul {
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    width: 100%;
     padding: 0px 2rem;  
     height: 80px;
     backdrop-filter: blur(4px);
@@ -697,7 +693,7 @@ li, ul {
         }
 
       .search{
-            font-size: .6rem;
+            font-size: .65rem;
             line-height: 2rem;
             font-weight: 700;
         }
