@@ -89,7 +89,7 @@ li, ul {
    background: transparent;
     border: none;
     outline: none;
-    width: 20rem;
+    width: max-content;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 2px;
@@ -513,7 +513,7 @@ li, ul {
     }
 
     .search-bar{
-        width: 300px;
+        width: max-content;
         height: 40px;
         padding: 0px 10px;
     }
@@ -596,18 +596,10 @@ li, ul {
             font-size: 1.2rem;
             font-weight: 700;
         }
-    
-        .search-bar{
-           width: 200px;
-          
-        }
+       
     
         .search{
-            font-size: .75rem;
-        }
-    
-        .submit > span{
-            transform: translate(-2.5rem, 0rem);
+            font-size: .85rem;
         }
     
     
@@ -692,6 +684,10 @@ li, ul {
 
     @media (max-width: 426px) and (min-width: 375px){
       
+        .navbar{
+            padding: 1rem 3rem;
+            gap: 1rem;
+        }
         .nav-menu{
             display: none;
         }
@@ -710,33 +706,23 @@ li, ul {
         }
     
         .search-bar{
-           width: 190px;
-          
+            border: 1px solid red;
+            max-width: fit-content;
         }
     
         .search{
-            font-size: .65rem;
-        }
-    
-        .submit > span{
-               transform: translate(-1.8rem, 0rem);
-        }
-    
-    
-        .weather-card-top > span{
-            transform: translate(1rem, -.4rem);
-    
+            font-size: .6rem;
+            line-height: 2rem;
+            font-weight: 700;
         }
     
         .weather-card-top img{
             width: 90px;
-            height: 90px;
-          
-            
+            height: 90px;   
         }
     
         .weather-card-top h1{
-            font-size: 3em;
+            font-size: 2rem;
        
         }
     
