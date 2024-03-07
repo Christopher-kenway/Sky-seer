@@ -644,6 +644,13 @@ li, ul {
             border-radius: 15px;
         }
 
+        .highlights-cards{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+    
+        }
+
        
 
         .highlights-cards img{
@@ -665,6 +672,11 @@ li, ul {
         .card-bottom_sun img {
             width: 30px;
             height: 30px;
+        }
+
+        .forecast{
+            display: grid;
+            grid-template-columns: 1fr;
         }
 
         .forecast-card{
@@ -794,7 +806,12 @@ li, ul {
 
     .card-bottom_sun h1{
         font-size: .8rem;
- 
+        }
+
+        .forecast{
+            display: grid;
+            grid-template-columns: 1fr;
+            border: 1px solid red;
         }
 
         .forecast-card{
@@ -802,7 +819,7 @@ li, ul {
         } 
 
         .forecast-item > span{
-            font-size: 1.01rem;
+            font-size: .96rem;
         }
     }
     
@@ -825,7 +842,7 @@ li, ul {
     }
 
     .forecast-item > span {
-        font-size: 1rem;
+        font-size: .9rem;
         width: max-content ;
         line-height: 1rem;
     }
