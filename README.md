@@ -17,7 +17,7 @@ This is a simple weather web application built using HTML, CSS, and vanilla Java
 
 ## Demo
 
-You can see a live demo of the application (https://sky-seer.vercel.app).
+You can see a live demo of the application https://sky-seer.vercel.app.
 
 ## Author
 
