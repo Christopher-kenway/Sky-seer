@@ -15,6 +15,7 @@ const sunriseOutput = document.querySelector('.sunrise');
 const sunsetOutput = document.querySelector('.sunset');
 const weatherIcon = document.querySelector(".icon");
 const city = document.querySelector('.city');
+const forecastDatesContainer = document.getElementById("forecastDatesContainer");
 
 
 // Form Submit event
@@ -169,3 +170,30 @@ const currentMonth = month[currentMonthIndex];
 const formattedDate  = `${day[currentDay]}, ${currentDate} ${currentMonth} ${currentYear}`;
 document.querySelector('.date').innerHTML = formattedDate;
 document.querySelector('.time').innerHTML = formattedTime;
+
+//forecast date
+
+function getDayWithSuffix(day) {
+    if (day > 3 && day < 21) return day + 'th';
+    switch (day % 10) {
+        case 1:  return day + "st";
+        case 2:  return day + "nd";
+        case 3:  return day + "rd";
+        default: return day + "th";
+    }
+}
+
+for (let i = 1; i < 6; i++){
+    const date = new Date();
+    date.setDate(date.getDate() + i);
+    const forecastDay = date.getDay();
+    const forecastDate = date.getDate();
+    const forecastMonthIndex = date.getMonth();
+    const formattedForecastDate = `${getDayWithSuffix(forecastDate)} ${month[forecastMonthIndex]}`;
+    const formattedForecastDay = `${day[forecastDay]}`;
+    console.log(formattedForecastDate);
+    console.log(formattedForecastDay);
+
+    document.querySelector(`.day${i + 1}`).textContent = formattedForecastDate;
+    document.querySelector(`.month${i + 1}`).textContent = formattedForecastDay;
+}

@@ -407,6 +407,10 @@ li, ul {
     letter-spacing: 1px;
 }
 
+.forecast{
+    display: block;
+    text-align: left;
+}
 .forecast-card{
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -436,41 +440,34 @@ li, ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
+    gap: 1.2rem;
     padding: 0rem .3rem;
+    text-align: left;
+
   }
   
   .forecast-item {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    align-content: center;
+    justify-content: space-evenly;
     gap: 3rem;
-   
+    width: 100%; 
   }
   
 .forecast-item span{
+    text-align: left;
     font-size: 19px;
     font-weight: 300;
     letter-spacing: 0px;
-    line-height: 20px;
+    line-height: 20px; 
     
 }
-  .temperature,
-  .day,
-  .month {
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: #fff;
-  }
 
   .footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px 0px; 
+    display: inline;
+    align-content: center;
+    justify-content: center;
    
   }
 
@@ -478,7 +475,7 @@ li, ul {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
     padding: 0px 2rem;  
     height: 80px;
     backdrop-filter: blur(4px);
@@ -488,7 +485,7 @@ li, ul {
   }
   
     .footer__text a{
-        color: rgb(7, 109, 242);
+        color: rgb(11, 230, 238);
         text-decoration: none;
     }
 
