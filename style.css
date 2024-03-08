@@ -782,7 +782,7 @@ li, ul {
             margin-top: 1rem;
          }
 
-    .card-bottom_sun h1{
+        .card-bottom_sun h1{
         font-size: .8rem;
         }
 
@@ -798,6 +798,10 @@ li, ul {
 
         .forecast-item > span{
             font-size: .96rem;
+        }
+
+        .footer__text{
+        font-size: .883rem; 
         }
     }
     
@@ -898,5 +902,8 @@ li, ul {
         width: max-content ;
         line-height: 1rem;
     }
+
+  
+    
  
 }   
