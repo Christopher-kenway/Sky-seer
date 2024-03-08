@@ -53,7 +53,7 @@ async function fetchWeatherData()
 
     console.log(weatherCondition);
 
-    if (weatherCondition === "clouds") {
+    if (weatherCondition === "Clouds") {
       weatherIcon.src = "/icons/cloud.png";
     } else if (weatherCondition === "rain") {
       weatherIcon.src = "/icons/rain.png";
